@@ -1,26 +1,34 @@
 class Mercado:
-    def __init__(self, nome, preço, quantidade,valor_total,desconto):
+    def __init__(self, nome, preço, quantidade):
         self.nome= nome
         self.preço = preço
         self.quantidade = quantidade
-        self.valor_total = valor_total
-        self.desconto = desconto
+        self.valor_total = 0
+        self.desconto = 0
 
     def Aplicar_descontos(self):
         if self.quantidade<=10:
             print(f'O preço não se altera, fica por {self.valor_total}')
         if self.quantidade>10 and self.quantidade<21:
-            self.desconto= (self.valor_total*10)/100
-            self.valor_total= self.valor_total-self.desconto
+            self.desconto= (self.preço*10)/100
+            self.valor_total= self.preço-self.desconto
             print(f'O desconto é de {self.desconto}')
-            print(f'O valor que deve ser pago: {self.valor_total}')
+            print(f'O valor que deve ser pago em cada unidade: {self.valor_total}')
         elif self.quantidade>21 and self.quantidade<50:
-            self.desconto=(self.valor_total*20)/100
-            self.valor_total= self.valor_total-self.desconto
+            self.desconto=(self.preço*20)/100
+            self.valor_total= self.preço-self.desconto
             print(f'O desconto é de {self.desconto}')
-            print(f'O valor que deve ser pago: {self.valor_total}')
+            print(f'O valor que deve ser pago em cada unidade: {self.valor_total}')
         elif self.quantidade>50:
-            self.desconto =(self.valor_total*25)/100
-            self.valor_total= self.valor_total-self.desconto
+            self.desconto =(self.preço*25)/100
+            self.valor_total= self.preço-self.desconto
             print(f'O desconto é de {self.desconto}')
-            print(f'O valor que deve ser pago: {self.valor_total}')
+            print(f'O valor que deve ser pago em cada unidade: {self.valor_total}')
+            
+            
+           from Mercado import Mercado
+
+Mercadinho_silva = Mercado('Salgadinhos',38,25)
+
+Mercadinho_silva.Aplicar_descontos() 
+            

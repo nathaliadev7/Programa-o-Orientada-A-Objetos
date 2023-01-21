@@ -1,0 +1,28 @@
+class Conta_Bancária:
+    def __init__(self, titular,NumConta,Saldo,vip,sacar,deposito):
+        self.titular = titular
+        self.NumConta= NumConta
+        self.Saldo = Saldo
+        self.vip = vip
+        self.sacar= sacar
+        self.deposito = deposito
+
+    def Saque(self):
+        
+        if self.sacar < self.Saldo:
+            self.Saldo =self.Saldo-self.sacar
+            print(f'Novo saldo=={self.Saldo}')
+        else:
+            print('Saldo insuficiente')
+
+    def Depositar(self):
+        self.Saldo = self.Saldo + self.deposito
+        print(f'Novo saldo de {self.Saldo}')
+        
+        from ContaBancaria import Conta_Bancária
+
+Nathalia= Conta_Bancária('Nathalia de Macedo Martins','345657-6',1000, True,100,200)
+
+Nathalia.Saque()
+
+Nathalia.Depositar()

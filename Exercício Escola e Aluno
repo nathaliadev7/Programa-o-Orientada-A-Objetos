@@ -1,0 +1,49 @@
+#Crie uma classe chamada Escola com os seguintes dados: nome da escola, endereço, cursos (será uma lista de cursos), alunos (uma lista que inicializará vazia).
+#A classe também conterá dois métodos. Uma para matricular alunos. Receberá um objeto da classe Aluno que será inserido na lista de alunos. E uma método de exibir alunos matriculados, que percorrerá a lista de alunos e a exibirá para o usuário. 
+
+#A classe Aluno terá os seguintes atributos
+#- Matrícula
+#- Nome
+#- Idade
+#- Curso
+
+
+
+
+
+class Aluno:
+    def __init__(self,nome,idade,matricula,curso):
+        self.nome = nome
+        self.idade = idade
+        self.matricula = matricula
+        self.curso = curso
+
+
+
+class Escola(Aluno):
+    def __init__(self,nome_da_escola,endereco,nome,idade,curso,matricula):
+        Aluno.__init__(self,nome,idade,matricula,curso)
+    
+        self.nome_da_escola = nome_da_escola
+        self.endereco = endereco
+        self.cursos = []
+        self.alunos = []
+
+    def Matricular(self):
+       self.alunos.append(self.nome)
+       print('Aluno matriculado')
+      
+    
+    def Matriculados(self):
+        print(self.alunos)
+
+
+nome=input('Digite o nome do aluno: ')
+idade=int(input('Digite a idade do aluno: '))
+curso=input('Digite o curso: ')
+matricula=int(input('Digite a matricula: '))
+
+Infinity = Escola('infinity','caminho das arvores',nome,idade,curso,matricula)
+
+Infinity.Matricular()  
+Infinity.Matriculados()

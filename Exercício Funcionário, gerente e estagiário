@@ -1,0 +1,58 @@
+class Funcionario:
+    def __init__(self,matricula,nome,salario):
+        self.matricula = matricula
+        self.nome = nome
+        self.salario = salario
+
+class Estagiario(Funcionario):
+    def __init__(self, matricula, nome, salario,horas_estagiadas=0):
+        super().__init__(matricula, nome, salario)
+        self.horas_estagiadas = horas_estagiadas
+
+    def AprovadoOuNao(self):
+        self.horas_estagiadas=int(input('Digite a quantidade de horas estagiadas: '))
+        if self.horas_estagiadas>300:
+            print('Será contratado')
+        else:
+            print('Seu estágio ainda não acabou')
+
+
+class Gerente(Funcionario):
+    def __init__(self, matricula, nome, salario,setor,comissao):
+        super().__init__(matricula, nome, salario)
+        self.setor = setor
+        self.comissao = comissao
+
+
+    def Contratar(self):
+        self.qtd_funcionarios=int(input('Digite a quantidade de funcionários do setor: '))
+
+        if self.qtd_funcionarios<10:
+            print('Serão contratados mais funcionários')
+        else:
+            print('Setor tem gente o suficiente')
+
+ 
+ 
+ from Funcionário import *
+
+
+nome=input('Digite o nome do funionário: ')
+matricula=int(input('Digite o numero de matricula desse funcionario: '))
+salario=float(input('Digite o salario dessa pessoa: '))
+setor=input('Digite o nome do setor: ')
+comissao=float(input('Digite o valor da comissão: '))
+
+
+Gerente1 = Gerente(nome,matricula,salario,setor,comissao)
+
+Gerente1.Contratar()
+
+nome=input('Digite o nome do funionário: ')
+matricula=int(input('Digite o numero de matricula desse funcionario: '))
+salario=float(input('Digite o salario dessa pessoa: '))
+
+
+Estagiario1 = Estagiario(matricula,nome,salario)
+
+Estagiario1.AprovadoOuNao()

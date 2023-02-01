@@ -1,0 +1,58 @@
+class Conta:
+    def __init__(self,nome,numero,saldo):
+        self.nome = nome
+        self.numero = numero
+        self.saldo = saldo
+
+    def Saque(self):
+        self.sacar=float(input('Digite o valor que deseja sacar:'))
+        if self.sacar<=self.saldo:
+            self.saldo = self.saldo-self.sacar
+        print(f'Saque efetuado! saldo atual {self.saldo}')
+        if self.sacar > self.saldo:
+            print('Valor de saque maior do que o disponível')
+        elif self.saldo==0:
+            print('conta zerada')
+
+
+    def Deposito(self):
+        self.depositar=float(input('Digite o valor que quer depositar:'))
+        self.saldo + self.depositar
+        print(f'Depósito efetuado! Saldo atual: {self.saldo + self.depositar }')
+
+class ContaCorrente(Conta):
+    def __init__(self, nome, numero, saldo,cheque_especial):
+        super().__init__(nome, numero, saldo)
+        self.cheque_especial = cheque_especial
+
+
+class Poupança(Conta):
+    def __init__(self, nome, numero, saldo):
+        super().__init__(nome, numero, saldo)
+        self.rendimento = (self.saldo * 10)/100
+
+
+    def Calculo_taxa(self):
+        print(f' A taxa é de 10% e o rendimento é de {self.rendimento}')
+
+
+nome=input('Digite o nome: ')
+numero=int(input('Digite o número da conta: '))
+saldo=float(input('Digite o saldo da conta: '))
+
+Conta_NATHALIA = Conta(nome,numero,saldo)
+
+
+Conta_NATHALIA.Saque()
+Conta_NATHALIA.Deposito()
+
+
+nome=input('Digite o nome: ')
+numero=int(input('Digite o número da conta: '))
+saldo=float(input('Digite o saldo da conta: '))
+
+
+NATHALIA = Poupança(nome,numero,saldo)
+
+
+NATHALIA.Calculo_taxa()
